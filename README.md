@@ -104,5 +104,6 @@ lib/
     ```sh
     flutter run
     ```
+(backend use https://github.com/meowcoding7044/nest-crud-101.git)
 
 This project is now a solid foundation for any future development. Feel free to build upon it!
