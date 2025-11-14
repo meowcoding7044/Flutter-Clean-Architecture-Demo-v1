@@ -1,4 +1,4 @@
-# Flutter Production-Ready Architecture Demo
+# Flutter Production-Ready Architecture Demo (Dev)
 
 This project serves as a robust template for building scalable and maintainable Flutter applications, suitable for production environments. It demonstrates a clean architecture approach by separating concerns into distinct layers and features.
 
