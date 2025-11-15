@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => sl<MessageBloc>()..add(MessagesFetch()),
-        child: const MessageView(),
+        child: const MessageView(), // Changed to a separate widget for clarity
       ),
     );
   }

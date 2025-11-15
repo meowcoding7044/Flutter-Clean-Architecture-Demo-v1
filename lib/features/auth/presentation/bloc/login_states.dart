@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:first_flutter_v1/core/utils/enums.dart';
 
+// Represents the state of the Login feature.
 class LoginStates extends Equatable {
+  // The initial state should represent a clean, empty form.
   const LoginStates({
     this.email = '',
     this.password = '',
@@ -29,5 +31,5 @@ class LoginStates extends Equatable {
   }
 
   @override
-  List<Object> get props => [email, password, message,postApiStatus];
+  List<Object> get props => [email, password, message, postApiStatus];
 }

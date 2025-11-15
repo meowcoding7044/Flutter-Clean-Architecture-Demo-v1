@@ -1,7 +1,10 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class AppUrl{
+class AppUrl {
+  // Get the base URL from the loaded .env file.
+  static final String _baseUrl = dotenv.env['API_BASE_URL'] ?? '';
 
-  static String loginApi = "http://10.0.2.2:3000/auth/login";
-  static String messagesGetApi = "http://10.0.2.2:3000/messages";
-
+  // Construct the full API endpoints from the base URL.
+  static String loginApi = "$_baseUrl/auth/login";
+  static String messagesGetApi = "$_baseUrl/messages";
 }

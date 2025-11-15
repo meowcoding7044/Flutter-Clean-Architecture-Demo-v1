@@ -10,7 +10,6 @@ import 'base_api_services.dart';
 
 class NetworkServicesApi implements BaseApiServices {
   Future<Map<String, String>> _getAuthHeaders() async {
-    await SessionController().getUserFromPreference();
     final token = SessionController().userModel.accessToken;
 
     if (token != null && token.isNotEmpty) {
@@ -20,10 +19,7 @@ class NetworkServicesApi implements BaseApiServices {
         'Authorization': 'Bearer $token',
       };
     } else {
-      return {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      };
+      return {'Content-Type': 'application/json', 'Accept': 'application/json'};
     }
   }
 
@@ -69,25 +65,6 @@ class NetworkServicesApi implements BaseApiServices {
     return jsonResponse;
   }
 
-  @override
-  Future<dynamic> deleteApi(String url) async {
-    dynamic jsonResponse;
-    try {
-      final headers = await _getAuthHeaders();
-      final response = await http
-          .delete(Uri.parse(url), headers: headers)
-          .timeout(const Duration(seconds: 50));
-
-      jsonResponse = returnResponse(response);
-    } on SocketException {
-      throw NoInternetException('');
-    } on TimeoutException {
-      throw FetchDataException('Time out try again');
-    }
-
-    return jsonResponse;
-  }
-
   dynamic returnResponse(http.Response response) {
     if (kDebugMode) {
       print(response.statusCode);
@@ -99,19 +76,23 @@ class NetworkServicesApi implements BaseApiServices {
         dynamic jsonResponse = jsonDecode(response.body);
         return jsonResponse;
       case 400:
-        dynamic jsonResponse = jsonDecode(response.body);
-        return jsonResponse;
+        // Throw a specific exception for 400 Bad Request errors.
+        throw BadRequestException(jsonDecode(response.body)['message']);
       case 401:
       case 403:
         throw UnauthorisedException(jsonDecode(response.body)['message']);
       case 500:
-        throw FetchDataException(
-          'Error communicating with server: ${response.statusCode}',
-        );
+        throw ServerException(jsonDecode(response.body)['message']);
       default:
         throw FetchDataException(
-          'Error occurred while communication with server: ${response.statusCode}',
+          'Error occurred while communicating with server: ${response.statusCode}',
         );
     }
+  }
+
+  @override
+  Future deleteApi(String url) {
+    // TODO: implement deleteApi
+    throw UnimplementedError();
   }
 }

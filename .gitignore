@@ -5,41 +5,59 @@
 *.swp
 .DS_Store
 .atom/
-.build/
 .buildlog/
 .history
-.svn/
-.swiftpm/
-migrate_working_dir/
+.idea
+.metadata
+.packages
+.project
+.settings/
+.vscode/
+build/
+find.xml
+profile/
+thumbs.db
 
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
+# Android
+/android/app/src/main/assets/flutter_assets/
+/android/app/src/main/res/merged/
+/android/app/src/main/res/values/generated.xml
+/android/gradle/wrapper/gradle-wrapper.jar
+/android/key.properties
+/android/local.properties
+/android/.gradle/
+/android/app/build/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# iOS
+/ios/Pods/
+/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-*
+/ios/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_*
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+/ios/Runner/GeneratedPluginRegistrant-Swift.h
+/ios/Runner/GeneratedPluginRegistrant-Swift.m
+/ios/Runner/flutter_export_environment.sh
+/ios/Runner.xcworkspace/contents.xcworkspacedata
+/ios/Runner.xcworkspace/xcshareddata/
+/ios/Runner.xcodeproj/project.xcworkspace/
+/ios/Runner.xcodeproj/xcshareddata/
+/ios/Flutter/App.framework
+/ios/Flutter/engine.version
+/ios/Flutter/flutter_assets/
+/ios/Flutter/Flutter.podspec
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-/coverage/
+# Windows
+/windows/flutter/ephemeral/
+/windows/flutter/generated_plugins.cmake
+/windows/runner/Debug/
+/windows/runner/Profile/
+/windows/runner/Release/
+/windows/runner/win32_headers/
+/windows/runner/flutter_window.pdb
 
-# Symbolication related
-app.*.symbols
+# Web
+/web/flutter_bootstrap.js
 
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Danger
+# Ignore environment variables files
+.env*
